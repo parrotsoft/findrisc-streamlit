@@ -14,8 +14,10 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install dependencies
-        run: pip install -r requirements.txt
-      - name: Run test
-        shell: bash
         run: |
-          python -m unittest -v
+          python -m pip install -upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run test
+        run: |
+          python -m unittest discover -v
