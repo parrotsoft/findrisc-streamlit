@@ -1,5 +1,5 @@
 # Escala de Findrisc en Streamlit
 
-### Documentación:
-[Streamlit](https://docs.streamlit.io/)
-
+### Referencias:
+- [Streamlit](https://docs.streamlit.io/)
+- [URL Producción](https://findrisc.streamlit.app/)
