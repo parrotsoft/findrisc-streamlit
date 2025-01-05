@@ -1,8 +1,6 @@
 name: Escala de Findrisc en Streamlit
 
-on:
-  push:
-    branches: [master]
+on: [push]
 
 jobs:
   build:
