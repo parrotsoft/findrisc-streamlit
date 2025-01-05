@@ -4,9 +4,9 @@ import streamlit as st
 def by_age(age):
     if age < 45:
         return 0
-    elif age >= 45 and age <= 54:
+    elif 45 <= age <= 54:
         return 2
-    elif age >= 55 and age <= 64:
+    elif 55 <= age <= 64:
         return 3
     elif age > 64:
         return 4
@@ -17,7 +17,7 @@ def by_age(age):
 def by_imc(imc):
     if imc < 25:
         return 0
-    elif imc > 25 and imc <= 30:
+    elif 25 < imc <= 30:
         return 1
     elif imc > 30:
         return 3
@@ -29,7 +29,7 @@ def by_abdominal_perimeter(abdominal_perimeter, sex):
     if sex == 'Masculino':
         if abdominal_perimeter < 94:
             return 0
-        elif abdominal_perimeter >= 94 and abdominal_perimeter <= 102:
+        elif 94 <= abdominal_perimeter <= 102:
             return 3
         elif abdominal_perimeter > 102:
             return 4
@@ -38,7 +38,7 @@ def by_abdominal_perimeter(abdominal_perimeter, sex):
     elif sex == 'Femenino':
         if abdominal_perimeter < 80:
             return 0
-        elif abdominal_perimeter >= 80 and abdominal_perimeter <= 88:
+        elif 80 <= abdominal_perimeter <= 88:
             return 3
         elif abdominal_perimeter > 88:
             return 4
