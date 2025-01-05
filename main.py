@@ -1,5 +1,11 @@
 import streamlit as st
 from helpers.Helpers import imc
+from core.Data import df
+
+st.set_page_config(
+    page_title="Escala de Findrisc",
+    page_icon="🧊",
+)
 
 st.title("Escala de Findrisc")
 
@@ -8,7 +14,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.radio("Género", ("Masculino", "Femenino"), key="sex", horizontal=True)
     st.number_input("Peso en Kg", key="weight")
-    st.markdown(f"### **IMC:** {imc()}")
+    st.markdown(f"### **IMC:** {imc(st.session_state.get('weight'), st.session_state.get('height'))}")
 
 with col2:
     st.date_input("Fecha de Nacimiento", key="birth")
@@ -22,7 +28,8 @@ with st.container(border=True):
         st.radio("¿Realiza al menos 30 minutos diarios de actividad física?", ("Si", "No"), key="ask1")
         st.radio("¿Le ha recetado alguna vez medicamentos contra HTA?", ("Si", "No"), key="ask2")
         st.radio("¿Ha habilitado algún diagnóstico de DM en su familia?", (
-        "No", "Si: Abuelos, tíos o primos hermanos (pero no padres, hermanos o hijos)", "Si: Padres, hermano o hijos"),
+            "No", "Si: Abuelos, tíos o primos hermanos (pero no padres, hermanos o hijos)",
+            "Si: Padres, hermano o hijos"),
                  key="ask3")
 
     with col4:
@@ -36,3 +43,14 @@ def calculate():
 
 
 st.button("Calcular", key="calculate", on_click=calculate, type="primary", icon="🔥", use_container_width=True)
+
+st.dataframe(
+    df,
+    column_config={
+        "total_points": "Puntuación total",
+        "risk_diabetes": "Riesgo de desarrollar diabetes en los próximos 10 años",
+        "interpretation": "Interpretación"
+    },
+    hide_index=True,
+    use_container_width=True,
+)
