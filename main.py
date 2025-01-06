@@ -19,7 +19,7 @@ with col1:
 
 with col2:
     st.number_input("Peso en Kg", key="weight")
-    st.number_input("Altura en m2", key="height")
+    st.number_input("Altura en Cm", key="height")
     st.markdown(f"### **IMC:** {imc(st.session_state.get('weight'), st.session_state.get('height'))}")
 
 
