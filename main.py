@@ -15,11 +15,11 @@ col1, col2 = st.columns(2)
 with col1:
     st.radio("Género", ("Masculino", "Femenino"), key="sex", horizontal=True)
     st.number_input("Edad", key="age")
-    st.number_input("Perimetro abdominal (medido a nivel del ombligo) :", key="perimeter")
+    st.number_input("Perimetro abdominal en Cm (medido a nivel del ombligo) :", key="perimeter")
 
 with col2:
     st.number_input("Peso en Kg", key="weight")
-    st.number_input("Altura en m2", key="height")
+    st.number_input("Altura en Cm", key="height")
     st.markdown(f"### **IMC:** {imc(st.session_state.get('weight'), st.session_state.get('height'))}")
 
 
